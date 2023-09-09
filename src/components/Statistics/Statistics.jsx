@@ -1,20 +1,29 @@
 import React, {Component} from "react"
-import { Paragraph, Title } from './Statistics.styled';
-
+import { Paragraph,} from './Statistics.styled';
+import PropTypes from 'prop-types'
 
 export class Statistics extends Component {
   
 
   render() {
+    const {good, neutral, bad, total, positivePercentage} = this.props
     return (
       <div>
-        <Title>Statistics</Title>
-        <Paragraph>Good: {this.props.good}</Paragraph>
-        <Paragraph>Neutral: {this.props.neutral}</Paragraph>
-        <Paragraph>Bad: {this.props.bad}</Paragraph>
-        <Paragraph>Total: {this.props.total}</Paragraph>
-        <Paragraph>PositivePercentage: {this.props.positivePercentage}%</Paragraph>
+        <Paragraph>Good: {good}</Paragraph>
+        <Paragraph>Neutral: {neutral}</Paragraph>
+        <Paragraph>Bad: {bad}</Paragraph>
+        <Paragraph>Total: {total}</Paragraph>
+        <Paragraph>PositivePercentage: {positivePercentage}%</Paragraph>
       </div>
     );
   }
+}
+
+
+Statistics.propTypes = {
+  good: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
+  total: PropTypes.number,
+  positivePercentage: PropTypes.number,
 }
