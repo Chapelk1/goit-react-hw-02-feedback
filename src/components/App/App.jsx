@@ -6,8 +6,24 @@ export class App extends Component {
     good: 0,
     neutral: 0,
     bad: 0,
-    };
-    
+  };
+  
+  stateValueHandler = (e) => {
+    const { textContent } = e.currentTarget;
+  
 
-  render() { return <Section title={'Please leave feedback'}/>;}
+    this.setState(prevState => {
+      return { [textContent]: prevState[textContent] + 1 };
+    })
+  }
+
+  render() {
+    return (
+      <Section
+        title="Please leave feedback"
+        options={this.state}
+        handlValue={this.stateValueHandler }
+      />
+    );
+    }
 }
